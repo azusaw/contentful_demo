@@ -1,21 +1,27 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import { makeStyles } from "@material-ui/core/styles"
 import { AllContentfulBlogPostQuery } from "../../types/graphql-types"
+import { makeStyles } from "@material-ui/core/styles"
 import Layout from "../components/layout"
-import Button from "@material-ui/core/Button"
-import Card from "@material-ui/core/Card"
-import CardActionArea from "@material-ui/core/CardActionArea"
-import CardContent from "@material-ui/core/CardContent"
-import CardMedia from "@material-ui/core/CardMedia"
-import Typography from "@material-ui/core/Typography"
+import {
+  Card,
+  CardActionArea,
+  CardContent,
+  CardMedia,
+  Chip,
+  Typography,
+} from "@material-ui/core"
 
 const useStyles = makeStyles({
-  root: {
+  card: {
     maxWidth: 345,
   },
   media: {
-    height: 140,
+    height: 160,
+  },
+  chip: {
+    marginTop: "0.5rem",
+    marginRight: "0.5rem",
   },
 })
 
@@ -30,12 +36,12 @@ const Index: React.FC<Props> = ({ data }) => {
         <>
           {post && (
             <Link to={`/post/${post.slug}`}>
-              <Card className={classes.root}>
+              <Card className={classes.card}>
                 <CardActionArea>
                   <CardMedia
                     className={classes.media}
                     image={post.eyeCatch?.file?.url}
-                    title="Contemplative Reptile"
+                    title="Eye catch img"
                   />
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
@@ -48,6 +54,15 @@ const Index: React.FC<Props> = ({ data }) => {
                     >
                       {post.postDate}
                     </Typography>
+                    {post.tags?.map((tag, idx) => (
+                      <Chip
+                        key={idx}
+                        className={classes.chip}
+                        variant="outlined"
+                        size="small"
+                        label={tag?.title}
+                      />
+                    ))}
                   </CardContent>
                 </CardActionArea>
               </Card>
@@ -70,6 +85,9 @@ export const query = graphql`
           }
         }
         slug
+        tags {
+          title
+        }
       }
     }
   }
