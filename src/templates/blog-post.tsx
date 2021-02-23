@@ -97,8 +97,8 @@ const BlogPostTemplate: React.FC<Props> = ({ data }) => {
   )
 }
 export const query = graphql`
-  query contentfulBlogPost {
-    contentfulBlogPost {
+  query contentfulBlogPost($id: String!) {
+    contentfulBlogPost(id: { eq: $id }) {
       author {
         name
         description

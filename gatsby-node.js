@@ -8,6 +8,7 @@ exports.createPages = async ({ graphql, actions }) => {
       allContentfulBlogPost {
         edges {
           node {
+            id
             slug
           }
         }
@@ -23,6 +24,9 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: `/post/${edge.node.slug}`,
       component: blogPostTemplate,
+      context: {
+        id: edge.node.id,
+      },
     })
   })
 }
