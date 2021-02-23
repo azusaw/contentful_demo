@@ -73,3 +73,4 @@ yarn-error.log
 .idea/codeStyles/codeStyleConfig.xml
 .idea/codeStyles/Project.xml
 .idea/workspace.xml
+.idea/prettier.xml
