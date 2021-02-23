@@ -1,7 +1,16 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "gatsby"
 import { makeStyles } from "@material-ui/core/styles"
-import { colors, createMuiTheme, ThemeProvider } from "@material-ui/core"
+import {
+  Button,
+  createMuiTheme,
+  Dialog,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  ThemeProvider,
+  Typography,
+} from "@material-ui/core"
 import CssBaseline from "@material-ui/core/CssBaseline"
 
 const theme = createMuiTheme({
@@ -23,6 +32,7 @@ const useStyles = makeStyles({
   headerContent: {
     maxWidth: "50rem",
     margin: "0 auto",
+    padding: "0 1rem",
     lineHeight: "60px",
     fontSize: "1.5rem",
     fontWeight: "bold",
@@ -49,14 +59,18 @@ const useStyles = makeStyles({
 
 const Layout: React.FC = ({ children }) => {
   const classes = useStyles()
+  const [showModal, setShowModal] = useState(false)
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <header className={classes.header}>
         <div className={classes.headerContent}>
-          <Link className="header-link-home" to="/">
-            {"PUI PUI MOLCAR"}
-          </Link>
+          <Link to="/">{"PUI PUI MOLCAR"}</Link>
+          <div style={{ float: "right" }}>
+            <Button onClick={() => setShowModal(true)}>
+              {"What is MOLCAR?"}
+            </Button>
+          </div>
         </div>
       </header>
       <main className={classes.children}>
@@ -68,6 +82,29 @@ const Layout: React.FC = ({ children }) => {
         {" / Built with "}
         <a href="https://www.gatsbyjs.com">{"Gatsby"}</a>
       </footer>
+      <Dialog onClose={() => setShowModal(false)} open={showModal}>
+        <DialogTitle>{"What's MORCAR?"}</DialogTitle>
+        <DialogContent>
+          {
+            "It is a stop motion animation broadcast in Japan since 2021/1 created by Misato Tomoki."
+          }
+          <br />
+          {
+            "MORUCAR is so cute and heal our tiring mind, it become very popular."
+          }
+          <div style={{ textAlign: "right", margin: "2rem 0" }}>
+            <Button
+              variant="contained"
+              color="primary"
+              href="https://molcar-anime.com/"
+              target="_blank"
+              rel="noopener"
+            >
+              {"OFFICIAL SITE"}
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </ThemeProvider>
   )
 }
