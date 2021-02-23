@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import { makeStyles } from "@material-ui/core/styles"
-import { colors, createMuiTheme, ThemeProvider  } from "@material-ui/core"
+import { colors, createMuiTheme, ThemeProvider } from "@material-ui/core"
 import CssBaseline from "@material-ui/core/CssBaseline"
 
 const theme = createMuiTheme({
@@ -11,17 +11,14 @@ const theme = createMuiTheme({
     },
   },
   typography: {
-    fontFamily: [
-      'Balsamiq Sans',
-      'Arial'
-    ].join(','),
+    fontFamily: ["Balsamiq Sans", "Arial"].join(","),
   },
-});
+})
 
 const useStyles = makeStyles({
   header: {
     backgroundColor: "#ffda52",
-    height: "60px"
+    height: "60px",
   },
   headerContent: {
     maxWidth: "50rem",
@@ -33,20 +30,21 @@ const useStyles = makeStyles({
   },
   children: {
     backgroundColor: "#ffeaaa",
-    backgroundImage: "repeating-linear-gradient(-45deg,#fff, #fff 7px, transparent 0, transparent 14px)",
+    backgroundImage:
+      "repeating-linear-gradient(-45deg,#fff, #fff 7px, transparent 0, transparent 14px)",
     minHeight: "calc(100vh - 100px)",
   },
   childrenContent: {
     maxWidth: "50rem",
     margin: "0 auto",
-    padding: "3rem 1rem"
+    padding: "3rem 1rem",
   },
   footer: {
     backgroundColor: "#ffda52",
-    height: "40px",
-    lineHeight: "40px",
-    textAlign: "center"
-  }
+    height: "50px",
+    lineHeight: "50px",
+    textAlign: "center",
+  },
 })
 
 const Layout: React.FC = ({ children }) => {
