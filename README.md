@@ -1,9 +1,13 @@
 # about
 Blog demo used contentful for content management
 
+# website
+> https://azusaw-contentful-demo.netlify.app/
+
 # used
 - Gatsby.js
 - Material UI
+- Netlify
 - contentful
 
 # what is contentful?
@@ -11,9 +15,6 @@ Blog demo used contentful for content management
 
 API-based headless CMS.
 Data is managed on API, we can develop front end flexibly in any language.
-
-# website
-> https://????
 
 # build setup
 ```bash
