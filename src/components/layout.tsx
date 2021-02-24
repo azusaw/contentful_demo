@@ -47,7 +47,7 @@ const useStyles = makeStyles({
   childrenContent: {
     maxWidth: "50rem",
     margin: "0 auto",
-    padding: "3rem 1rem",
+    padding: "4rem 1rem",
   },
   footer: {
     backgroundColor: "#ffda52",
